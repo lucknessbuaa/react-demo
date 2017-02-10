@@ -1,0 +1,36 @@
+html
+	head
+		meta(chartset="urf-8")
+		title defer and async
+		// 同步的，顺序执行，会阻碍下面DOM的渲染
+			script(src="/static/deferAndAsync/zero.js")
+			script(src="/static/deferAndAsync/first.js")
+
+		// defer的作用，脚本会等到文档解析完以后再执行
+			script(src="/static/deferAndAsync/first.js" defer=true.toString())
+			script(src="/static/deferAndAsync/second.js")
+
+		// defer的作用，脚本会等到文档解析完以后再执行
+			script(src="/static/deferAndAsync/zero.js")
+			script(src="/static/deferAndAsync/first.js" defer=true.toString())
+			script(src="/static/deferAndAsync/second.js")
+			script(src="/static/deferAndAsync/third.js")
+
+		// async的作用
+		script(src="/static/deferAndAsync/zero.js" async=true.toString())
+		script(src="/static/deferAndAsync/first.js" defer=true.toString())
+
+	body
+		div#zero zero
+		div#hello hello
+		div#world world
+		div#third third
+		//
+			script(src="/static/deferAndAsync/first.js" )
+			script(src="/static/deferAndAsync/second.js")
+
+		// defer为true的会在后面执行，defer不影响执行顺序
+			script(src="/static/deferAndAsync/zero.js" defer=true.toString())
+			script(src="/static/deferAndAsync/first.js" defer=true.toString())
+			script(src="/static/deferAndAsync/second.js")
+			script(src="/static/deferAndAsync/third.js")
