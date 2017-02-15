@@ -2,10 +2,14 @@ var path = require('path');
 var webpack = require("webpack");
 
 module.exports = {
-	entry: "./main.js",
+	entry: {
+		bundle: "./main.js",
+		promise: ["./scripts/promise.jsx"],
+		defer: ["./scripts/defer.jsx"]
+	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: "bundle.js"
+		filename: "[name].js"
 	},
 	module: {
 		loaders: [{
@@ -15,7 +19,17 @@ module.exports = {
 			query: {
 				presets: ["es2015", "react"]
 			}
-		}]
+		}, {
+			test: /\.less$/,
+			loader: 'style-loader!css-loader!less-loader'
+		}, {
+			test: /\.css$/,
+			loader: 'style-loader!css-loader'
+		},
+		{ test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" },
+		{ test: /\.(woff|woff2)$/, loader:"file-loader" },
+		{ test: /\.ttf$/, loader:"file-loader" },
+		{ test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" }]
 	},
 	watch: true,
 	watchOptions: {
