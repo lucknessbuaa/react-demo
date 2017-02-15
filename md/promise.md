@@ -41,6 +41,13 @@ attempting to resolve or reject a resolved promise has no effect.
 		// All <div> animations are finished.
 	});
 
+### 参考文献
+1. [Promise/A specification](http://wiki.commonjs.org/wiki/Promises/A)
+2. [Promise/A+ specification](https://promisesaplus.com/)
+3. [The differences between Promise/A and Promise/A+](https://promisesaplus.com/differences-from-promises-a)
+4. [The differences betweenjQuery Deferreds and the Promises/A+ spec](https://abdulapopoola.com/2014/12/12/the-differences-between-jquery-deferreds-and-the-promisesa-spec/)
+5. [Promise MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
 
 
 
